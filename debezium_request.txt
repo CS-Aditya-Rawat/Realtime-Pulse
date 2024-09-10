@@ -1,0 +1,18 @@
+curl -H 'Content-Type: application/json' localhost:8083/connectors --data '
+{
+"name": "postgres-connector",
+"config": {
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+  "topic.prefix": "cdc",
+  "database.user": "postgres",
+  "database.dbname": "financial_db",
+  "database.hostname": "postgres",
+  "database.password": "postgres",
+  "database.port": "5432",
+  "name": "postgres-connector",
+  "plugin.name": "pgoutput",
+  "table.include.list": "public.transactions",
+  "decimal.handling.mode": "string"
+  }
+}'
+
